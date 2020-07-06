@@ -1,5 +1,6 @@
 <?php
 
+
 $centre = filter_input(INPUT_POST, 'centre');
 $fonction = filter_input(INPUT_POST, 'fonction');
 $fournisseur = filter_input(INPUT_POST, 'fournisseur');
@@ -29,10 +30,13 @@ $Q22 = filter_input(INPUT_POST, 'Q22');
 $Q23 = filter_input(INPUT_POST, 'Q23');
 $Q24 = filter_input(INPUT_POST, 'Q24');
 if (!empty($centre)){
-    $host = "localhost";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "cerbaEval";
+    
+$localhost = "sql7.freesqldatabase.com";
+
+    $host = $localhost ;
+    $dbusername = "sql7353012";
+    $dbpassword = "tX5MWziAvd";
+    $dbname = "sql7353012";
 }
 
 $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
