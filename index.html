@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
+        <link href="https://desk.netsitsolutions.com/public/theme/assets/css/main.css" rel="stylesheet">
+        <link href="https://desk.netsitsolutions.com/public/theme/assets/css/responsive.css" rel="stylesheet">
+        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="fonction-visible.js"></script>
+       
+        <link href="style.css" rel="stylesheet">
+    </head>
+
+
+
+    
+<!-- MultiStep Form -->
+<div class="row">
+    <div class="col-md-12">
+        <form id="msform" class="" action="form_script2.php" method="POST">
+            <!-- progressbar -->
+           
+            <img src="logo_cerbahealthcare.png" id="logo" >
+
+            <ul id="progressbar" style="width: 50%">
+                <li class="active">Identification</li>
+                <li>Formulaire</li>
+                <li>Resultats</li>
+            </ul>
+            <!-- fieldsets -->
+            <fieldset>
+                <h2
+                    class="fs-title"> Evaluation fournisseur 2020</h2>
+
+   <!-- Date aujourd'hui-->
+  <div class="text-left pb-20">            
+  <span class="text-left"><strong>Date:</strong></span><span class="pl-3 date" id="date"></span></div>
+  <script>
+    n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
+  </script>
+
+  
+          <!-- fieldsets -->    
+              
+     <p class="note mt-10">Ce questionnaire vous est adressé dans le cadre de notre démarche SRM (Supplier Relationship Management). L'objectif est d'évaluer la performance du Top 10 des fournisseurs  en termes de qualité, coût, délai.
+Vous avez été désigné comme référent dans le cadre de cette démarche et nous remercions par avance pour votre contribution.
+Nous vous invitons donc à compléter ce questionnaire avec les différentes parties prenantes (directeur de plateau technique, biologistes, approvisionneur …).
+Nous vous communiquerons en retour les évaluations des autres régions lors d'une séance plénière.  </p>          
+               <div class="form-group row">
+   <label class="input-group-text col-4 text-left font-weight-bold">Selectionnez votre entité :  </label> 
+ <select name="centre" id="inputState1" class="form-control col-4">
+        <option selected>Selas...</option>
+        <option>Cerba</option> 
+        <option>Cerballiance</option>
+        <option>CHC Italy</option>
+        <option>CHC Benelux</option>
+ </select>  
+          </div>       
+      
+
+
+ <!-- <select name="fonction" id="inputState2" class="form-control col-4">
+        <option selected>Profil...</option>
+        <option>Direction médicale</option> 
+        <option>Direction technique/opération </option>
+        <option>Direction achats</option>
+        
+ </select>   -->
+          
+              
+               <div class="form-group row">
+   <label class="input-group-text col-4 text-left font-weight-bold">Selectionnez votre entité :  </label> 
+ <select name="fournisseur" id="inputState3" class="form-control col-4">
+        <option selected>Fournisseur...</option> 
+        <option>Abbott</option>
+        <option>BD</option>
+        <option>Beckman</option>
+        <option>Biomérieux</option>
+        <option>Biorad</option>
+        <option>Roche</option> 
+        <option>Sebia</option> 
+        <option>Stago</option> 
+        <option>Symex</option> 
+        <option>Thermofisher</option>
+ </select>  
+          </div>
+          <div class="form-group row">
+          <label class="input-group-text col-4 text-left font-weight-bold">Selectionnez un référent :  </label> 
+          <select name="referent" id="inputState3" class="form-control col-4">
+                 <option selected>Référent...</option> 
+                 <option>Florian dubonnet </option>
+                 <option>Sylvie Cado </option>
+                 <option>Philippe Favrot </option>
+                 <option>Massimiliano Valisi </option>
+                 <option>Bruno Borracino </option>
+                 <option>Alain Dalleac </option> 
+                 <option>Christine Bergeron </option> 
+                 <option>Oihiba Berhili </option> 
+                 <option>Oussama Kiti </option> 
+                 <option>Oswald Sanitate </option>
+          </select>
+        </div>
+          <div class="form-group row">
+            <label class="input-group-text col-4 text-left font-weight-bold">Selectionnez votre profil :  </label> 
+         
+         
+            
+            <div style="align-content: left;" id="radioContainer1">
+             <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1" >
+                 <input type="radio" id="option-1" class="mdl-radio__button" name="fonction" value="Direction médicale" >
+                 <span class="mdl-radio__label">Direction médicale</span>
+               </label>
+             </div>
+             
+               <div style="align-content: left;" id="radioContainer2">
+               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2" >
+                 <input type="radio" id="option-2" class="mdl-radio__button" name="fonction" value="Direction technique/opération" >
+                 <span class="mdl-radio__label">Direction technique/opération </span>
+             </label>
+             </div>
+         
+             <div style="align-content: left;" id="radioContainer3">
+               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3" >
+                 <input type="radio" id="option-3" class="mdl-radio__button" name="fonction" value="Direction achats" >
+                 <span class="mdl-radio__label">Direction achats</span>
+             </label>
+             </div> 
+            
+          
+          </div> 
+           <input type="button" name="next" class="next action-button left-right-hover" value="Suivant"/>
+          
+          </fieldset>
+
+
+
+            <fieldset>
+
+              
+              <div class="form-group row" style="width: auto; height: auto">
+     
+  <label id="q1a" class="input-group-text col-12 text-left font-weight-bold">1-Trouvez vous que le Fournisseur respecte le cahier des charges et répond à votre besoin ?  :  </label> 
+   
+  <!-- NON DEFINI -->
+  <input type="radio" id="q1j" name="Q1" value="ND" style="display:none" checked >
+
+  <input type="radio" id="q1b" name="Q1" value="1">
+  <label for="Q1" id="q1c">Pas du tout satisfait </label>
+
+  <input type="radio" id="q1d" name="Q1" value="2">
+  <label for="Q1" id="q1e">Plutot pas satisfait</label>
+
+  <input type="radio"  id="q1f" name="Q1" value="3">
+  <label for="Q1" id="q1g">Plutot satisfait</label>
+
+  <input type="radio" id="q1h" name="Q1" value="4">
+  <label for="Q1" id="q1i">Très satisfait</label>
+
+  
+     
+              
+               
+   <label  id="q2a" class="input-group-text col-12 text-left font-weight-bold">2-Quelles sont les raisons pour lesquelles vous n'avez pas été satisfait ? :  </label> 
+                 
+    <textarea id="q2b"  class="input-group-text col-12 text-left font-weight-bold"  name="Q2"rows="5" cols="33">
+
+    </textarea>
+                   
+   <label id="q3a"  class="input-group-text col-12 text-left font-weight-bold">3-Trouvez vous que le Fournisseur respecte les délais annoncés ?  :  </label> 
+        
+   <!-- NON DEFINI -->
+   <input type="radio" id="q1j" name="Q3" value="ND" style="display:none" checked >
+
+  <input type="radio"  id="q3b" name="Q3" value="1">
+  <label for="huey" id="q3c">Pas du tout satisfait </label>
+
+  <input type="radio" id="q3d" name="Q3" value="2">
+  <label for="dewey" id="q3e">Plutot pas satisfait</label>
+
+  <input type="radio" id="q3f" name="Q3" value="3">
+  <label for="louie" id="q3g">Plutot satisfait</label>
+
+  <input type="radio" id="q3h" name="Q3" value="4">
+  <label for="louie" id="q3i">Très satisfait</label>
+
+              
+ 
+                   
+               
+   <label id="q4a" class="input-group-text col-12 text-left font-weight-bold">4-Quelles sont les raisons pour lesquelles vous n'avez pas été satisfait ? :  </label> 
+                 
+    <textarea id="q4b" class="input-group-text col-12 text-left font-weight-bold"  name="Q4"rows="5" cols="33">
+
+    </textarea>
+
+            
+
+    
+   <label id="q5a" class="input-group-text col-12 text-left font-weight-bold">5-Trouvez vous que le Fournisseur respecte les prix négociés ?  :  </label> 
+        
+   <!-- NON DEFINI -->
+   <input type="radio" id="q1j" name="Q5" value="ND" style="display:none" checked >
+
+  <input type="radio" id="q5b" name="Q5" value="1">
+  <label for="huey" id="q5c">Pas du tout satisfait </label>
+
+  <input type="radio" id="q5d" name="Q5" value="2">
+  <label for="dewey" id="q5e">Plutot pas satisfait</label>
+
+  <input type="radio" id="q5f" name="Q5" value="3">
+  <label for="louie" id="q5g">Plutot satisfait</label>
+
+  <input type="radio" id="q5h" name="Q5" value="4">
+  <label for="louie" id="q5i">Très satisfait</label>
+
+   <label id="q6a" class="input-group-text col-12 text-left font-weight-bold">6-Quelles sont les raisons pour lesquelles vous n'avez pas été satisfait ? :  </label> 
+                 
+    <textarea id="q6b" class="input-group-text col-12 text-left font-weight-bold"  name="Q6"rows="5" cols="33">
+
+    </textarea>
+
+               
+          
+   <label id="q7a" class="input-group-text col-12 text-left font-weight-bold">7-Trouvez vous que le Fournisseur soit force de propositions techniques ?  :  </label> 
+                
+<!-- NON DEFINI -->
+<input type="radio" id="q1j" name="Q7" value="ND" style="display:none" checked >
+
+  <input type="radio" id="q7b" name="Q7" value="1">
+  <label for="huey" id="q7c">Pas du tout satisfait </label>
+
+  <input type="radio" id="q7d" name="Q7" value="2">
+  <label for="dewey" id="q7e">Plutot pas satisfait</label>
+
+  <input type="radio" id="q7f" name="Q7" value="3">
+  <label for="louie" id="q7g">Plutot satisfait</label>
+
+  <input type="radio" id="q7h" name="Q7" value="4">
+  <label for="louie" id="q7i">Très satisfait</label>
+
+   <label id="q8a" class="input-group-text col-12 text-left font-weight-bold">8- Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
+                 
+    <textarea id="q8b" class="input-group-text col-12 text-left font-weight-bold"  name="Q8"rows="5" cols="33">
+
+    </textarea>
+
+             
+                 
+   <label id="q9a" class="input-group-text col-12 text-left font-weight-bold">9- Trouvez vous que le Fournisseur vous accompagne dans les enjeux d'industrialisation ?  :  </label> 
+ 
+<!-- NON DEFINI -->
+<input type="radio" id="q1j" name="Q9" value="ND" style="display:none" checked >
+
+  <input type="radio" id="q9b" name="Q9" value="1">
+  <label for="huey" id="q9c">Pas du tout satisfait </label>
+
+  <input type="radio" id="q9d" name="Q9" value="2">
+  <label for="dewey" id="q9e">Plutot pas satisfait</label>
+
+  <input type="radio" id="q9f" name="Q9" value="3">
+  <label for="louie" id="q9g">Plutot satisfait</label>
+
+  <input type="radio" id="q9h" name="Q9" value="4">
+  <label for="louie" id="q9i">Très satisfait</label>
+
+   <label id="q10a" class="input-group-text col-12 text-left font-weight-bold">10-Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
+                 
+    <textarea id="q10b" class="input-group-text col-12 text-left font-weight-bold"  name="Q10"rows="5" cols="33">
+
+    </textarea>
+  
+       
+   <label id="q11a" class="input-group-text col-12 text-left font-weight-bold">11-Trouvez vous que le Fournisseur soit force de proposition en termes d'innovation ?  :  </label> 
+              
+<!-- NON DEFINI -->
+<input type="radio" id="q1j" name="Q11" value="ND" style="display:none" checked >
+
+  <input type="radio" id="q11b" name="Q11" value="1">
+  <label for="huey" id="q11c">Pas du tout satisfait </label>
+
+  <input type="radio" id="q11d" name="Q11" value="2">
+  <label for="dewey" id="q11e">Plutot pas satisfait</label>
+
+  <input type="radio" id="q11f" name="Q11" value="3">
+  <label for="louie" id="q11g">Plutot satisfait</label>
+
+  <input type="radio" id="q11h" name="Q11" value="4">
+  <label for="louie" id="q11i">Très satisfait</label>
+
+   <label id="q12a" class="input-group-text col-12 text-left font-weight-bold">12-Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
+                 
+    <textarea  id="q12b" class="input-group-text col-12 text-left font-weight-bold"  name="Q12"rows="5" cols="33">
+
+    </textarea>
+    
+   <label id="q13a" class="input-group-text col-12 text-left font-weight-bold">13-Avez vous des litiges avec le Fournisseur ?  :  </label> 
+
+   <!-- NON DEFINI -->
+   <input type="radio" id="q1j" name="Q13" value="ND" style="display:none" checked >        
+
+  <input type="radio" id="q13b" name="Q13" value="1">
+  <label for="huey" id="q13c">Pas du tout satisfait </label>
+
+  <input type="radio" id="q13d" name="Q13" value="2">
+  <label for="dewey" id="q13e">Plutot pas satisfait</label>
+
+  <input type="radio" id="q13f" name="Q13" value="3">
+  <label for="louie" id="q13g">Plutot satisfait</label>
+
+  <input type="radio" id="q13h" name="Q13" value="4">
+  <label for="louie" id="q13i">Très satisfait</label>
+
+   <label id="q14a" class="input-group-text col-12 text-left font-weight-bold">14-Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
+                 
+    <textarea id="q14b" class="input-group-text col-12 text-left font-weight-bold"  name="Q14"rows="5" cols="33">
+
+    </textarea>
+   
+   <label id="q15a" class="input-group-text col-12 text-left font-weight-bold">15- Etes vous satisfait du développement commercial et marketing du Fournisseur ?:  </label> 
+           
+<!-- NON DEFINI -->
+<input type="radio" id="q1j" name="Q15" value="ND" style="display:none" checked >
+
+  <input type="radio" id="q15b" name="Q15" value="1">
+  <label for="huey" id="q15c" >Pas du tout satisfait </label>
+
+  <input type="radio" id="q15d" name="Q15" value="2">
+  <label for="dewey" id="q15e">Plutot pas satisfait</label>
+
+  <input type="radio" id="q15f" name="Q15" value="3">
+  <label for="louie" id="q15g">Plutot satisfait</label>
+
+  <input type="radio" id="q15h" name="Q15" value="4">
+  <label for="louie" id="q15i">Très satisfait</label>
+
+   <label id="q16a" class="input-group-text col-12 text-left font-weight-bold">16-Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
+                 
+    <textarea id="q16b" class="input-group-text col-12 text-left font-weight-bold"  name="Q16"rows="5" cols="33">
+
+    </textarea>
+                 
+   
+   <label id="q17a" class="input-group-text col-12 text-left font-weight-bold">17- Le fournisseur propose-t-il des pistes d'économies ?:  </label> 
+              
+<!-- NON DEFINI -->
+<input type="radio" id="q1j" name="Q17" value="ND" style="display:none" checked >
+
+  <input type="radio" id="q17b"  name="Q17" value="1">
+  <label for="huey"  id="q17c">Pas du tout satisfait </label>
+
+  <input type="radio" id="q17d"  name="Q17" value="2">
+  <label for="dewey"  id="q17e">Plutot pas satisfait</label>
+
+  <input type="radio"  id="q17f" name="Q17" value="3">
+  <label for="louie" id="q17g" >Plutot satisfait</label>
+
+  <input type="radio" id="q17h"  name="Q17" value="4">
+  <label for="louie" id="q17i" >Très satisfait</label>
+
+   <label id="q18a" class="input-group-text col-12 text-left font-weight-bold">18-Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
+                 
+    <textarea id="q18b" class="input-group-text col-12 text-left font-weight-bold"  name="Q18"rows="5" cols="33">
+
+    </textarea>
+
+       
+   <label id="q19a" class="input-group-text col-12 text-left font-weight-bold">19- Les offres proposées sont-elles suffisament claires :  </label> 
+   
+<!-- NON DEFINI -->
+<input type="radio" id="q1j" name="Q19" value="ND" style="display:none" checked >
+
+  <input type="radio" id="q19b" name="Q19" value="1">
+  <label for="huey" id="q19c" >Pas du tout satisfait </label>
+
+  <input type="radio" id="q19d" name="Q19" value="2">
+  <label for="dewey" id="q19e">Plutot pas satisfait</label>
+
+  <input type="radio" id="q19f" name="Q19" value="3">
+  <label for="louie" id="q19g">Plutot satisfait</label>
+
+  <input type="radio" id="q19h" name="Q19" value="4">
+  <label for="louie" id="q19i">Très satisfait</label>
+
+   <label id="q20a" class="input-group-text col-12 text-left font-weight-bold">20-Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
+                 
+    <textarea id="q20b" class="input-group-text col-12 text-left font-weight-bold"  name="Q20"rows="5" cols="33">
+
+    </textarea>
+
+   <label id="q21a" class="input-group-text col-12 text-left font-weight-bold">21- Les offres proposées sont elles en cohérence avec le marché ?:  </label> 
+   
+<!-- NON DEFINI -->
+<input type="radio" id="q1j" name="Q21" value="ND" style="display:none" checked >
+
+  <input type="radio" id="q21b" name="Q21" value="1">
+  <label for="huey" id="q21c">Pas du tout satisfait </label>
+
+  <input type="radio" id="q21d" name="Q21" value="2">
+  <label for="dewey" id="q21e">Plutot pas satisfait</label>
+
+  <input type="radio" id="q21f" name="Q21" value="3">
+  <label for="louie" id="q21g">Plutot satisfait</label>
+
+  <input type="radio" id="q21h"  name="Q21" value="4">
+  <label for="louie" id="q21i">Très satisfait</label>
+
+   <label id="q22a" class="input-group-text col-12 text-left font-weight-bold">22- Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
+                 
+    <textarea id="q22b" class="input-group-text col-12 text-left font-weight-bold"  name="Q22"rows="5" cols="33">
+
+    </textarea>
+          
+   <label id="q23a" class="input-group-text col-12 text-left font-weight-bold">23- Comment jugez vous la politique du Fournisseur en terme d'hygiène et de sécurité ? :  </label> 
+               
+<!-- NON DEFINI -->
+<input type="radio" id="q1j" name="Q23" value="ND" style="display:none" checked >
+
+  <input type="radio" id="q23b" name="Q23" value="1">
+  <label for="huey" id="q23c">Pas du tout satisfait </label>
+
+  <input type="radio" id="q23d" name="Q23" value="2">
+  <label for="dewey" id="q23e">Plutot pas satisfait</label>
+
+  <input type="radio" id="q23f" name="Q23" value="3">
+  <label for="louie" id="q23g">Plutot satisfait</label>
+
+  <input type="radio" id="q23h" name="Q23" value="4">
+  <label for="louie" id="q23i">Très satisfait</label>
+
+   <label id="q24a" class="input-group-text col-12 text-left font-weight-bold">24 - Comment jugez vous la politique du Fournisseur en terme d'environnement et developpement durable ? :  </label> 
+   
+   <input type="radio" id="q1j" name="Q24" value="ND" style="display:none" checked > 
+
+  <input type="radio" id="q24b" name="Q24" value="1">
+  <label for="huey" id="q24c">Pas du tout satisfait </label>
+
+  <input type="radio" id="q24d" name="Q24" value="2">
+  <label for="dewey" id="q24e">Plutot pas satisfait</label>
+
+  <input type="radio" id="q24f" name="Q24" value="3">
+  <label for="louie" id="q24g">Plutot satisfait</label>
+
+  <input type="radio" id="q24h" name="Q24" value="4">
+  <label for="louie" id="q24i">Très satisfait</label>
+
+  </div>
+
+              <input type="button" name="previous" class="previous action-button-previous" value="Précedent"/>
+                <input type="button" name="next" class="next action-button left-right-hover" value="Suivant"/>
+            </fieldset>
+          
+          
+          
+          
+          
+                    <fieldset>
+                        <h2 class="fs-title ">Révision et validation du formulaire</h2>
+
+                        <p class="note mt-10">Arrivés à cette étape vous pouvez revoir votre formulaire dans son intégralité afin de prevenir toute erreur ou ommission.
+                            Dernière relecture avant validation. Cette dernière est definitive  </p>   
+
+
+
+                            
+                            
+
+
+                            <input type="button" name="previous" class="previous action-button-previous mid" value="Précedent"/>
+                            <input type="submit" name="submit" class="submit action-button" value="Valider"/>
+                    </fieldset>
+
+
+
+          
+            
+        </form>
+        <!-- link to designify.me code snippets -->
+
+</div>
+<!-- /.MultiStep Form -->
