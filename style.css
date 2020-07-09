@@ -231,12 +231,13 @@ body{
     
 /*logo*/
 #logo{
-    position: absolute;
-    height: 20%;
-    width: 20%; 
-    margin-left: -40%;
-    margin-right: auto;
-    margin-top: -2.5%;
+  position: relative;
+  overflow: hidden;
+  height: 20%;
+  width: 20%;
+  right: 30%;
+
+  
     
     
 }
@@ -250,7 +251,7 @@ body{
         /*CSS counters to number the steps*/
         counter-reset: step;
         margin-right: auto;
-        margin-left: 33%; 
+        margin-left: 50%; 
     }
     
     #progressbar li {
