@@ -69,7 +69,7 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
               
                <div class="form-group row">
    <label class="input-group-text col-4 text-left font-weight-bold">Selectionnez le fournisseur à évaluer :  </label> 
- <select name="fournisseur" id="inputState3" class="form-control col-4">
+ <select name="fournisseur" id="inputState3" class="form-control col-4" onchange="myFunctionD()">
         <option selected>Fournisseur...</option> 
         <option>Abbott</option>
         <option>BD</option>
@@ -79,14 +79,14 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
         <option>Roche</option> 
         <option>Sebia</option> 
         <option>Stago</option> 
-        <option>Symex</option> 
+        <option>Sysmex</option> 
         <option>Thermofisher</option>
  </select>  
           </div>
           <div class="form-group row">
-          <label class="input-group-text col-4 text-left font-weight-bold">Selectionnez un référent :  </label> 
+          <label class="input-group-text col-4 text-left font-weight-bold">Selectionnez le nom :  </label> 
           <select name="referent" id="inputState3" class="form-control col-4">
-                 <option selected>Référent...</option> 
+                 <option selected>Identification...</option> 
                  <option>Florian dubonnet </option>
                  <option>Sylvie Cado </option>
                  <option>Philippe Favrot </option>
@@ -100,31 +100,30 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
           </select>
         </div>
           <div class="form-group row">
-            <label class="input-group-text col-4 text-left font-weight-bold">Selectionnez votre profil :  </label> 
+            <label class="input-group-text col-4 text-left font-weight-bold">Selectionnez votre Direction :  </label> 
          
-         
-
+       
             <div style="align-content: left;" id="radioContainer1">
-             <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1" >
-                 <input type="radio" id="option-1" class="mdl-radio__button" name="fonction" value="Direction médicale" >
+             <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="optionA" onclick="myFunctionA()">
+                 <input type="radio" id="optionA" class="mdl-radio__button" name="fonction" value="Direction médicale" >
                  <span class="mdl-radio__label">Direction médicale</span>
                </label>
              </div>
              
                <div style="align-content: left;" id="radioContainer2">
-               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2" >
-                 <input type="radio" id="option-2" class="mdl-radio__button" name="fonction" value="Direction technique/opération" >
+               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="optionC" onclick="myFunctionB()">
+                 <input type="radio" id="optionC" class="mdl-radio__button" name="fonction" value="Direction technique/opération" >
                  <span class="mdl-radio__label">Direction technique/opération </span>
              </label>
              </div>
-         
+            
              <div style="align-content: left;" id="radioContainer3">
-               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3" >
-                 <input type="radio" id="option-3" class="mdl-radio__button" name="fonction" value="Direction achats" >
+               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="optionB" onclick="myFunctionC()">
+                 <input type="radio" id="optionB" class="mdl-radio__button" name="fonction" value="Direction achats" >
                  <span class="mdl-radio__label">Direction achats</span>
              </label>
              </div> 
-            
+     
           
           </div> 
            <input type="button" name="next" class="next action-button left-right-hover" value="Suivant"/>
@@ -135,26 +134,54 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
 
             <fieldset>
 
+
+
+
+              <H4 class="input-group-text col-12 font-weight-bold">Votre direction:</H4><p id="Direction" >Veuillez selectionner votre direction</p>
+
+              <script>
+              function myFunctionA() {
+                document.getElementById("Direction").textContent = "Direction médicale";
+              }
+              function myFunctionB() {
+                document.getElementById("Direction").textContent = "Direction technique/opération";
+              }
+              function myFunctionC() {
+                document.getElementById("Direction").textContent = "Direction achats";
+              }
+              </script>
+
+              <H4 class="input-group-text col-12 font-weight-bold">Le fournisseur que vous évaluez:</H4><p id="Fournisseur" >Veuillez selectionner votre Fournisseur</p>
+
+              <script>
+              function myFunctionD() {
+                var x = document.getElementById("inputState3").value;
+                document.getElementById("Fournisseur").innerHTML = x;
+              }
+              </script>
+                
+              
               
               <div class="form-group row" style="width: auto; height: auto">
-     
+
   <label id="q1a" class="input-group-text col-12 text-left font-weight-bold">1-Trouvez vous que le Fournisseur respecte le cahier des charges et répond à votre besoin ?  :  </label> 
    
   <!-- NON DEFINI -->
+  <div>
   <input type="radio" id="q1j" name="Q1" value="ND" style="display:none" checked >
-
+<br>
   <input type="radio" id="q1b" name="Q1" value="1" >
   <label for="Q1" id="q1c" >Pas du tout satisfait </label>
-              
+  <br>          
   <input type="radio" id="q1d" name="Q1" value="2" >
   <label for="Q1" id="q1e">Plutot pas satisfait</label>
-              
+  <br>          
   <input type="radio"  id="q1f" name="Q1" value="3" >
   <label for="Q1" id="q1g">Plutot satisfait</label>
-            
+  <br>        
   <input type="radio" id="q1h" name="Q1" value="4" >
   <label for="Q1" id="q1i">Très satisfait</label>
-
+</div>
   
      
               
@@ -168,20 +195,21 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
    <label id="q3a"  class="input-group-text col-12 text-left font-weight-bold">3-Trouvez vous que le Fournisseur respecte les délais annoncés ?  :  </label> 
         
    <!-- NON DEFINI -->
+   <div>
    <input type="radio" id="q1j" name="Q3" value="ND" style="display:none" checked >
-
-  <input type="radio"  id="q3b" name="Q3" value="1">
+   <br> 
+  <input type="radio"  id="q3b" name="Q3" value="1" >
   <label for="huey" id="q3c">Pas du tout satisfait </label>
-
-  <input type="radio" id="q3d" name="Q3" value="2">
+  <br> 
+  <input type="radio" id="q3d" name="Q3" value="2" >
   <label for="dewey" id="q3e">Plutot pas satisfait</label>
-
-  <input type="radio" id="q3f" name="Q3" value="3">
+  <br> 
+  <input type="radio" id="q3f" name="Q3" value="3" >
   <label for="louie" id="q3g">Plutot satisfait</label>
-
-  <input type="radio" id="q3h" name="Q3" value="4">
+  <br> 
+  <input type="radio" id="q3h" name="Q3" value="4" >
   <label for="louie" id="q3i">Très satisfait</label>
-
+</div>
               
  
                    
@@ -197,20 +225,22 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
     
    <label id="q5a" class="input-group-text col-12 text-left font-weight-bold">5-Trouvez vous que le Fournisseur respecte les prix négociés ?  :  </label> 
         
-   <!-- NON DEFINI -->
+   <!-- NON DEFINI --><div>
    <input type="radio" id="q1j" name="Q5" value="ND" style="display:none" checked >
-
-  <input type="radio" id="q5b" name="Q5" value="1">
+   <br> 
+  <input type="radio" id="q5b" name="Q5" value="1" >
   <label for="huey" id="q5c">Pas du tout satisfait </label>
-
-  <input type="radio" id="q5d" name="Q5" value="2">
+  <br> 
+  <input type="radio" id="q5d" name="Q5" value="2" >
   <label for="dewey" id="q5e">Plutot pas satisfait</label>
-
-  <input type="radio" id="q5f" name="Q5" value="3">
+  <br> 
+  <input type="radio" id="q5f" name="Q5" value="3" >
   <label for="louie" id="q5g">Plutot satisfait</label>
-
-  <input type="radio" id="q5h" name="Q5" value="4">
+  <br> 
+  <input type="radio" id="q5h" name="Q5" value="4" > 
   <label for="louie" id="q5i">Très satisfait</label>
+</div>
+
 
    <label id="q6a" class="input-group-text col-12 text-left font-weight-bold">6-Quelles sont les raisons pour lesquelles vous n'avez pas été satisfait ? :  </label> 
                  
@@ -222,20 +252,21 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
           
    <label id="q7a" class="input-group-text col-12 text-left font-weight-bold">7-Trouvez vous que le Fournisseur soit force de propositions techniques ?  :  </label> 
                 
-<!-- NON DEFINI -->
+<!-- NON DEFINI --><div>
 <input type="radio" id="q1j" name="Q7" value="ND" style="display:none" checked >
-
-  <input type="radio" id="q7b" name="Q7" value="1">
+<br> 
+  <input type="radio" id="q7b" name="Q7" value="1" >
   <label for="huey" id="q7c">Pas du tout satisfait </label>
-
-  <input type="radio" id="q7d" name="Q7" value="2">
+  <br> 
+  <input type="radio" id="q7d" name="Q7" value="2" >
   <label for="dewey" id="q7e">Plutot pas satisfait</label>
-
-  <input type="radio" id="q7f" name="Q7" value="3">
+  <br> 
+  <input type="radio" id="q7f" name="Q7" value="3" >
   <label for="louie" id="q7g">Plutot satisfait</label>
-
-  <input type="radio" id="q7h" name="Q7" value="4">
+  <br> 
+  <input type="radio" id="q7h" name="Q7" value="4" >
   <label for="louie" id="q7i">Très satisfait</label>
+</div>
 
    <label id="q8a" class="input-group-text col-12 text-left font-weight-bold">8- Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
                  
@@ -248,19 +279,21 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
    <label id="q9a" class="input-group-text col-12 text-left font-weight-bold">9- Trouvez vous que le Fournisseur vous accompagne dans les enjeux d'industrialisation ?  :  </label> 
  
 <!-- NON DEFINI -->
+<div>
 <input type="radio" id="q1j" name="Q9" value="ND" style="display:none" checked >
-
-  <input type="radio" id="q9b" name="Q9" value="1">
+<br> 
+  <input type="radio" id="q9b" name="Q9" value="1" >
   <label for="huey" id="q9c">Pas du tout satisfait </label>
-
-  <input type="radio" id="q9d" name="Q9" value="2">
+  <br> 
+  <input type="radio" id="q9d" name="Q9" value="2" > 
   <label for="dewey" id="q9e">Plutot pas satisfait</label>
-
-  <input type="radio" id="q9f" name="Q9" value="3">
+  <br> 
+  <input type="radio" id="q9f" name="Q9" value="3" >
   <label for="louie" id="q9g">Plutot satisfait</label>
-
-  <input type="radio" id="q9h" name="Q9" value="4">
+  <br> 
+  <input type="radio" id="q9h" name="Q9" value="4" >
   <label for="louie" id="q9i">Très satisfait</label>
+</div>
 
    <label id="q10a" class="input-group-text col-12 text-left font-weight-bold">10-Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
                  
@@ -272,19 +305,21 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
    <label id="q11a" class="input-group-text col-12 text-left font-weight-bold">11-Trouvez vous que le Fournisseur soit force de proposition en termes d'innovation ?  :  </label> 
               
 <!-- NON DEFINI -->
+<div>
 <input type="radio" id="q1j" name="Q11" value="ND" style="display:none" checked >
-
-  <input type="radio" id="q11b" name="Q11" value="1">
+<br> 
+  <input type="radio" id="q11b" name="Q11" value="1" >
   <label for="huey" id="q11c">Pas du tout satisfait </label>
-
-  <input type="radio" id="q11d" name="Q11" value="2">
+  <br> 
+  <input type="radio" id="q11d" name="Q11" value="2" >
   <label for="dewey" id="q11e">Plutot pas satisfait</label>
-
-  <input type="radio" id="q11f" name="Q11" value="3">
+  <br> 
+  <input type="radio" id="q11f" name="Q11" value="3" >
   <label for="louie" id="q11g">Plutot satisfait</label>
-
-  <input type="radio" id="q11h" name="Q11" value="4">
+  <br> 
+  <input type="radio" id="q11h" name="Q11" value="4" >
   <label for="louie" id="q11i">Très satisfait</label>
+</div>
 
    <label id="q12a" class="input-group-text col-12 text-left font-weight-bold">12-Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
                  
@@ -295,19 +330,15 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
    <label id="q13a" class="input-group-text col-12 text-left font-weight-bold">13-Avez vous des litiges avec le Fournisseur ?  :  </label> 
 
    <!-- NON DEFINI -->
+   <div>
    <input type="radio" id="q1j" name="Q13" value="ND" style="display:none" checked >        
-
-  <input type="radio" id="q13b" name="Q13" value="1">
-  <label for="huey" id="q13c">Pas du tout satisfait </label>
-
-  <input type="radio" id="q13d" name="Q13" value="2">
-  <label for="dewey" id="q13e">Plutot pas satisfait</label>
-
-  <input type="radio" id="q13f" name="Q13" value="3">
-  <label for="louie" id="q13g">Plutot satisfait</label>
-
-  <input type="radio" id="q13h" name="Q13" value="4">
-  <label for="louie" id="q13i">Très satisfait</label>
+   <br>
+  <input type="radio" id="q13b" name="Q13" value="1" >
+  <label for="huey" id="q13c" >Oui </label>
+  <br>
+  <input type="radio" id="q13d" name="Q13" value="2" >
+  <label for="dewey" id="q13e">Non </label>
+</div>
 
    <label id="q14a" class="input-group-text col-12 text-left font-weight-bold">14-Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
                  
@@ -318,19 +349,21 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
    <label id="q15a" class="input-group-text col-12 text-left font-weight-bold">15- Etes vous satisfait du développement commercial et marketing du Fournisseur ?:  </label> 
            
 <!-- NON DEFINI -->
+<div>
 <input type="radio" id="q1j" name="Q15" value="ND" style="display:none" checked >
-
-  <input type="radio" id="q15b" name="Q15" value="1">
+<br>
+  <input type="radio" id="q15b" name="Q15" value="1" >
   <label for="huey" id="q15c" >Pas du tout satisfait </label>
-
-  <input type="radio" id="q15d" name="Q15" value="2">
+  <br>
+  <input type="radio" id="q15d" name="Q15" value="2" >
   <label for="dewey" id="q15e">Plutot pas satisfait</label>
-
-  <input type="radio" id="q15f" name="Q15" value="3">
+  <br>
+  <input type="radio" id="q15f" name="Q15" value="3" >
   <label for="louie" id="q15g">Plutot satisfait</label>
-
-  <input type="radio" id="q15h" name="Q15" value="4">
+  <br>
+  <input type="radio" id="q15h" name="Q15" value="4" >
   <label for="louie" id="q15i">Très satisfait</label>
+</div>
 
    <label id="q16a" class="input-group-text col-12 text-left font-weight-bold">16-Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
                  
@@ -342,19 +375,21 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
    <label id="q17a" class="input-group-text col-12 text-left font-weight-bold">17- Le fournisseur propose-t-il des pistes d'économies ?:  </label> 
               
 <!-- NON DEFINI -->
+<div>
 <input type="radio" id="q1j" name="Q17" value="ND" style="display:none" checked >
-
-  <input type="radio" id="q17b"  name="Q17" value="1">
+<br>
+  <input type="radio" id="q17b"  name="Q17" value="1" >
   <label for="huey"  id="q17c">Pas du tout satisfait </label>
-
-  <input type="radio" id="q17d"  name="Q17" value="2">
+  <br>
+  <input type="radio" id="q17d"  name="Q17" value="2" >
   <label for="dewey"  id="q17e">Plutot pas satisfait</label>
-
-  <input type="radio"  id="q17f" name="Q17" value="3">
+  <br>
+  <input type="radio"  id="q17f" name="Q17" value="3" >
   <label for="louie" id="q17g" >Plutot satisfait</label>
-
-  <input type="radio" id="q17h"  name="Q17" value="4">
+  <br>
+  <input type="radio" id="q17h"  name="Q17" value="4" >
   <label for="louie" id="q17i" >Très satisfait</label>
+</div>
 
    <label id="q18a" class="input-group-text col-12 text-left font-weight-bold">18-Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
                  
@@ -366,19 +401,21 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
    <label id="q19a" class="input-group-text col-12 text-left font-weight-bold">19- Les offres proposées sont-elles suffisament claires :  </label> 
    
 <!-- NON DEFINI -->
+<div>
 <input type="radio" id="q1j" name="Q19" value="ND" style="display:none" checked >
-
-  <input type="radio" id="q19b" name="Q19" value="1">
+<br>
+  <input type="radio" id="q19b" name="Q19" value="1" >
   <label for="huey" id="q19c" >Pas du tout satisfait </label>
-
-  <input type="radio" id="q19d" name="Q19" value="2">
+  <br>
+  <input type="radio" id="q19d" name="Q19" value="2" >
   <label for="dewey" id="q19e">Plutot pas satisfait</label>
-
-  <input type="radio" id="q19f" name="Q19" value="3">
+  <br>
+  <input type="radio" id="q19f" name="Q19" value="3" >
   <label for="louie" id="q19g">Plutot satisfait</label>
-
-  <input type="radio" id="q19h" name="Q19" value="4">
+  <br>
+  <input type="radio" id="q19h" name="Q19" value="4" >
   <label for="louie" id="q19i">Très satisfait</label>
+</div>
 
    <label id="q20a" class="input-group-text col-12 text-left font-weight-bold">20-Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
                  
@@ -389,19 +426,21 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
    <label id="q21a" class="input-group-text col-12 text-left font-weight-bold">21- Les offres proposées sont elles en cohérence avec le marché ?:  </label> 
    
 <!-- NON DEFINI -->
+<div>
 <input type="radio" id="q1j" name="Q21" value="ND" style="display:none" checked >
-
-  <input type="radio" id="q21b" name="Q21" value="1">
+<br>
+  <input type="radio" id="q21b" name="Q21" value="1" >
   <label for="huey" id="q21c">Pas du tout satisfait </label>
-
-  <input type="radio" id="q21d" name="Q21" value="2">
+  <br>
+  <input type="radio" id="q21d" name="Q21" value="2" >
   <label for="dewey" id="q21e">Plutot pas satisfait</label>
-
-  <input type="radio" id="q21f" name="Q21" value="3">
+  <br>
+  <input type="radio" id="q21f" name="Q21" value="3" >
   <label for="louie" id="q21g">Plutot satisfait</label>
-
-  <input type="radio" id="q21h"  name="Q21" value="4">
+  <br>
+  <input type="radio" id="q21h"  name="Q21" value="4" >
   <label for="louie" id="q21i">Très satisfait</label>
+</div>
 
    <label id="q22a" class="input-group-text col-12 text-left font-weight-bold">22- Quelles sont les raisons de votre satisfaction ou insatisfaction ? :  </label> 
                  
@@ -412,36 +451,38 @@ Nous vous communiquerons en retour les évaluations des autres régions lors d'u
    <label id="q23a" class="input-group-text col-12 text-left font-weight-bold">23- Comment jugez vous la politique du Fournisseur en terme d'hygiène et de sécurité ? :  </label> 
                
 <!-- NON DEFINI -->
+<div>
 <input type="radio" id="q1j" name="Q23" value="ND" style="display:none" checked >
-
-  <input type="radio" id="q23b" name="Q23" value="1">
+<br>
+  <input type="radio" id="q23b" name="Q23" value="1" >
   <label for="huey" id="q23c">Pas du tout satisfait </label>
-
-  <input type="radio" id="q23d" name="Q23" value="2">
+  <br>
+  <input type="radio" id="q23d" name="Q23" value="2" >
   <label for="dewey" id="q23e">Plutot pas satisfait</label>
-
-  <input type="radio" id="q23f" name="Q23" value="3">
+  <br>
+  <input type="radio" id="q23f" name="Q23" value="3" >
   <label for="louie" id="q23g">Plutot satisfait</label>
-
-  <input type="radio" id="q23h" name="Q23" value="4">
+  <br>
+  <input type="radio" id="q23h" name="Q23" value="4" >
   <label for="louie" id="q23i">Très satisfait</label>
+</div>
 
    <label id="q24a" class="input-group-text col-12 text-left font-weight-bold">24 - Comment jugez vous la politique du Fournisseur en terme d'environnement et developpement durable ? :  </label> 
-   
+   <div>
    <input type="radio" id="q1j" name="Q24" value="ND" style="display:none" checked > 
-
-  <input type="radio" id="q24b" name="Q24" value="1">
+   <br>
+  <input type="radio" id="q24b" name="Q24" value="1" >
   <label for="huey" id="q24c">Pas du tout satisfait </label>
-
-  <input type="radio" id="q24d" name="Q24" value="2">
+  <br>
+  <input type="radio" id="q24d" name="Q24" value="2" >
   <label for="dewey" id="q24e">Plutot pas satisfait</label>
-
-  <input type="radio" id="q24f" name="Q24" value="3">
+  <br>
+  <input type="radio" id="q24f" name="Q24" value="3" >
   <label for="louie" id="q24g">Plutot satisfait</label>
-
-  <input type="radio" id="q24h" name="Q24" value="4">
+  <br>
+  <input type="radio" id="q24h" name="Q24" value="4" >
   <label for="louie" id="q24i">Très satisfait</label>
-
+</div>
   </div>
 
               <input type="button" name="previous" class="previous action-button-previous" value="Précedent"/>
